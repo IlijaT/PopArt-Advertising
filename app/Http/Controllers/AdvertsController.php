@@ -14,7 +14,8 @@ class AdvertsController extends Controller
      */
     public function index()
     {
-        return view('adverts.index');
+        $adverts = Advert::paginate(15);
+        return view('adverts.index', ['adverts' => $adverts]);
     }
 
     /**

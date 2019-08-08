@@ -1,7 +1,7 @@
 <header class="popart-header py-3">
   <div class="row flex-nowrap justify-content-between align-items-center">
     <div class="col-4 pt-1">
-      <a class="text-muted" href="/posts/create">Create an Advert</a>
+      <a class="text-muted" href="/adverts/create">Create an Advert</a>
     </div>
     <div class="col-4 text-center">
       <a class="popart-header-logo text-dark" href="/">PopArt Advertising</a>

@@ -17,9 +17,9 @@
       All Adverts
     </h2>
 
-    {{-- @foreach($posts as $post)
-     @include('posts.post')
-    @endforeach --}}
+    @foreach($adverts as $advert)
+     @include('adverts.advert')
+    @endforeach
 
     <nav class="popart-pagination">
       <a class="btn btn-outline-primary" href="#">Older</a>
