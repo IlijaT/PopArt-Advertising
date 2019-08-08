@@ -14,8 +14,7 @@ class AdvertsController extends Controller
      */
     public function index()
     {
-        return 'Adverts Page';
-        //return view('welcome');
+        return view('adverts.index');
     }
 
     /**
