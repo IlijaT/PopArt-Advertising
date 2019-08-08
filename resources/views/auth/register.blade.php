@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="col-md-8 blog-main">
+    <div class="col-md-8 blog-main mt-4">
 
         <h1>Register</h1>
 
