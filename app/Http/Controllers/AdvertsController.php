@@ -42,16 +42,7 @@ class AdvertsController extends Controller
     public function store()
     {
 
-        $this->validate(request(), [
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'state' => 'required',
-            'price' => 'numeric',
-            'street' => 'required',
-            'city' => 'required',
-            'country' => 'required',
-            'phone' => 'required'
-        ]);
+        $this->validateAdvertRequest();
 
         $advert = auth()->user()->publish(
             new Advert([
@@ -96,22 +87,13 @@ class AdvertsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Advert  $advert
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Advert $advert)
+    public function update(Advert $advert)
     {
-        $this->validate(request(), [
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'state' => 'required',
-            'price' => 'numeric',
-            'street' => 'required',
-            'city' => 'required',
-            'country' => 'required',
-            'phone' => 'required'
-        ]);
+
+        $this->validateAdvertRequest();
 
         $advert->update([
             'title' => request('title'),
@@ -138,5 +120,19 @@ class AdvertsController extends Controller
     public function destroy(Advert $advert)
     {
         //
+    }
+
+    private function validateAdvertRequest()
+    {
+        return $this->validate(request(), [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'state' => 'required',
+            'price' => 'numeric',
+            'street' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'phone' => 'required'
+        ]);
     }
 }
