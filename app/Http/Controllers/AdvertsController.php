@@ -25,7 +25,7 @@ class AdvertsController extends Controller
      */
     public function create()
     {
-        //
+        return view('adverts.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class AdvertsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

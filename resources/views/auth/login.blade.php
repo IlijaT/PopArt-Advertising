@@ -4,7 +4,7 @@
 
     <div class="col-md-8 blog-main mt-4">
 
-        <h1>Log in</h1>
+        <h3>Log in</h3>
       
         <hr>
       

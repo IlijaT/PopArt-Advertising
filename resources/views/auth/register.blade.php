@@ -4,7 +4,7 @@
 
     <div class="col-md-8 blog-main mt-4">
 
-        <h1>Register</h1>
+        <h3>Register</h3>
 
         <hr>
 
