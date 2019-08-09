@@ -53,7 +53,7 @@ class AdvertsController extends Controller
             'phone' => 'required'
         ]);
 
-        auth()->user()->publish(
+        $advert = auth()->user()->publish(
             new Advert([
                 'title' => request('title'),
                 'description' => request('description'),
@@ -68,7 +68,7 @@ class AdvertsController extends Controller
 
         session()->flash('message', 'Your advert has now been published.');
 
-        return redirect('/');
+        return redirect("/adverts/{$advert->id}");
     }
 
     /**
@@ -79,7 +79,7 @@ class AdvertsController extends Controller
      */
     public function show(Advert $advert)
     {
-        //
+        return view('adverts.show', ['advert' => $advert]);
     }
 
     /**

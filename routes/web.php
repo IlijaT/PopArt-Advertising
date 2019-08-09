@@ -14,6 +14,7 @@
 Route::get('/', 'AdvertsController@index');
 Route::get('/adverts/create', 'AdvertsController@create');
 Route::post('/adverts', 'AdvertsController@store');
+Route::get('/adverts/{advert}', 'AdvertsController@show');
 
 Auth::routes();
 

@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function publish($advert)
     {
-        $this->adverts()->save($advert);
+        return $this->adverts()->save($advert);
     }
 }
