@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <div class="col-md-8 blog-main mt-4">
+    <div class="col-md-8 blog-main mt-2">
 
-        <h3>Log in</h3>
+        <h3 class="text-muted">Log in</h3>
       
         <hr>
       

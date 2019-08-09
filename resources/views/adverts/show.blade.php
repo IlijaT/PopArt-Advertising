@@ -3,7 +3,8 @@
 @section('content')
   <div class="col-md-8 blog-post">
     
-    <h1>{{ $advert->title }}</h1>
+    <h3>{{ $advert->title }}</h3>
+    <p class="blog-post-meta"> Published by <a href="http://">{{ $advert->user->name }}</a> on {{ $advert->created_at->toFormattedDateString()}} </p>
 
         {{-- @if(count($post->tags))
 
@@ -29,8 +30,12 @@
 
     <hr>
 
+    <div class="form-group d-flex justify-content-end">
+      <a class="btn btn-dark mx-1" href='{{"/adverts/{$advert->id}/edit"}}'>Edit</a>
+      <button type="submit" class="btn btn-danger mx-1">Delete</button>
+    </div>
+    
     <hr>
-
     <div>
       <h3>OVDE BI MOGLA FORMA ZA DODAVANJE SLIKE</h3>
       {{-- <form method="POST" action="/posts/{{ $post->id }}/comments">

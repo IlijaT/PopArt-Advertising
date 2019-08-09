@@ -90,7 +90,7 @@ class AdvertsController extends Controller
      */
     public function edit(Advert $advert)
     {
-        //
+        return view('adverts.edit', ['advert' => $advert]);
     }
 
     /**
@@ -102,7 +102,31 @@ class AdvertsController extends Controller
      */
     public function update(Request $request, Advert $advert)
     {
-        //
+        $this->validate(request(), [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'state' => 'required',
+            'price' => 'numeric',
+            'street' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'phone' => 'required'
+        ]);
+
+        $advert->update([
+            'title' => request('title'),
+            'description' => request('description'),
+            'state' => request('state'),
+            'price' => request('price'),
+            'street' => request('street'),
+            'city' => request('city'),
+            'country' => request('country'),
+            'phone' => request('phone'),
+        ]);
+
+        session()->flash('message', 'Your advert has now been updated.');
+
+        return redirect("/adverts/{$advert->id}");
     }
 
     /**
