@@ -21,7 +21,9 @@ class CreateAdvertsTable extends Migration
             $table->text('description');
             $table->string('state');
             $table->integer('price');
-            $table->string('location');
+            $table->string('street');
+            $table->string('city', 40);
+            $table->string('country', 40);
             $table->string('phone', 40);
             $table->timestamps();
 

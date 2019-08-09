@@ -11,7 +11,9 @@ $factory->define(Advert::class, function (Faker $faker) {
         'description' => $faker->sentence,
         'state' => $faker->word,
         'price' => $faker->numberBetween(100, 100000),
-        'location' => $faker->address,
+        'street' => $faker->streetAddress,
+        'city' => $faker->city,
+        'country' => $faker->country,
         'phone' => $faker->phoneNumber,
         'user_id' => factory(App\User::class)->create()->id,
         'category_id' => factory(App\Category::class)->create()->id
