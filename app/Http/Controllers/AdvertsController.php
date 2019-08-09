@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class AdvertsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,12 +37,38 @@ class AdvertsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        return $request;
+
+        $this->validate(request(), [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'state' => 'required',
+            'price' => 'numeric',
+            'street' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'phone' => 'required'
+        ]);
+
+        auth()->user()->publish(
+            new Advert([
+                'title' => request('title'),
+                'description' => request('description'),
+                'state' => request('state'),
+                'price' => request('price'),
+                'street' => request('street'),
+                'city' => request('city'),
+                'country' => request('country'),
+                'phone' => request('phone'),
+            ])
+        );
+
+        session()->flash('message', 'Your advert has now been published.');
+
+        return redirect('/');
     }
 
     /**
