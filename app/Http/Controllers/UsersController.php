@@ -16,4 +16,27 @@ class UsersController extends Controller
     {
         return view('users.show', compact('user'));
     }
+
+    public function edit(User $user)
+    {
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(User $user)
+    {
+
+        $this->validate(request(), [
+            'name' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+
+        $user->update([
+            'name' => request('name'),
+            'password' => request('password')
+        ]);
+
+        session()->flash('message', 'Your profile has been updated.');
+
+        return redirect("/users/{$user->id}");
+    }
 }

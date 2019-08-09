@@ -35,7 +35,7 @@
         @if($flash = session('message'))
           <div id="flash-message" class="alert alert-success" role="alert">
             
-            <p>{{$flash}}</p>
+            <p>{{ $flash }}</p>
           
           </div>
         @endif

@@ -21,7 +21,7 @@ class AdvertsController extends Controller
     public function index()
     {
         $adverts = Advert::paginate(15);
-        return view('adverts.index', ['adverts' => $adverts]);
+        return view('adverts.index', compact('adverts'));
     }
 
     /**
@@ -70,7 +70,7 @@ class AdvertsController extends Controller
      */
     public function show(Advert $advert)
     {
-        return view('adverts.show', ['advert' => $advert]);
+        return view('adverts.show', compact('advert'));
     }
 
     /**
@@ -81,7 +81,7 @@ class AdvertsController extends Controller
      */
     public function edit(Advert $advert)
     {
-        return view('adverts.edit', ['advert' => $advert]);
+        return view('adverts.edit', compact('advert'));
     }
 
     /**

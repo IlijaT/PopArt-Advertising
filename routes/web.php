@@ -20,6 +20,8 @@ Route::put('/adverts/{advert}', 'AdvertsController@update');
 Route::delete('/adverts/{advert}', 'AdvertsController@destroy');
 
 Route::get('/users/{user}', 'UsersController@show');
+Route::get('/users/{user}/edit', 'UsersController@edit');
+Route::put('/users/{user}', 'UsersController@update');
 
 Auth::routes();
 
