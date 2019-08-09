@@ -16,7 +16,9 @@
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('logout') }}"
+              {{-- "/users/{{ Auth::user()->id }}" --}}
+              <a href="/users/{{ Auth::user()->id }}" class="dropdown-item m-1">Profile</a>
+              <a class="dropdown-item m-1" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}

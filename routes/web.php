@@ -19,6 +19,8 @@ Route::get('/adverts/{advert}/edit', 'AdvertsController@edit');
 Route::put('/adverts/{advert}', 'AdvertsController@update');
 Route::delete('/adverts/{advert}', 'AdvertsController@destroy');
 
+Route::get('/users/{user}', 'UsersController@show');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
