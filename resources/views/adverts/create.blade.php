@@ -52,15 +52,13 @@
       <input value="{{ old('price') }}" type="number" class="form-control" id="price" name="price" required>
     </div>
 
-    <div class="form-group">
+    <div class="form-group d-flex justify-content-end">
       <button type="submit" class="btn btn-dark">Publish</button>
     </div>
       
     </form>
 
    @include('layouts.errors')
-
-    
     
 </div>
 

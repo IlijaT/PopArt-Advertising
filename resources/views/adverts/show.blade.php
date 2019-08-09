@@ -32,7 +32,11 @@
 
     <div class="form-group d-flex justify-content-end">
       <a class="btn btn-dark mx-1" href='{{"/adverts/{$advert->id}/edit"}}'>Edit</a>
-      <button type="submit" class="btn btn-danger mx-1">Delete</button>
+      <form action="/adverts/{{ $advert->id }}" method="post">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger mx-1">Delete</button>
+      </form>
     </div>
     
     <hr>

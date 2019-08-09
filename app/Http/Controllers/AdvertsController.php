@@ -119,7 +119,9 @@ class AdvertsController extends Controller
      */
     public function destroy(Advert $advert)
     {
-        //
+        $advert->delete();
+        session()->flash('message', 'Your advert has now been deleted.');
+        return redirect('/');
     }
 
     private function validateAdvertRequest()
