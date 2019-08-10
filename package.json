@@ -24,6 +24,5 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "vue2-dropzone": "^3.6.0"
     }
 }
