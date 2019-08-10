@@ -4,15 +4,13 @@
   <div class="col-md-8 blog-post">
     
     <h3>{{ $advert->title }}</h3>
-    <p class="blog-post-meta"> Published by <a href="http://">{{ $advert->user->name }}</a> on {{ $advert->created_at->toFormattedDateString()}} </p>
+  <p class="blog-post-meta"> Published by <a href="/users/{{ $advert->user->id }}/adverts">{{ $advert->user->name }}</a> on {{ $advert->created_at->toFormattedDateString()}} </p>
 
-    <p>{{ $advert->description }}</p>
-    <p>{{ $advert->state }}</p>
-    <p>{{ $advert->price }}</p>
-    <p>{{ $advert->street }}</p>
-    <p>{{ $advert->city }}</p>
-    <p>{{ $advert->country }}</p>
-    <p>{{ $advert->phone }}</p>
+    <p class="my-0">Description: {{ $advert->description }}</p>
+    <p class="my-0">State: {{ $advert->state }}</p>
+    <p class="my-0">Price: {{ $advert->price }} $</p>
+    <p class="my-0">Location: {{ $advert->street , $advert->city, $advert->country}} </p>
+    <p class="my-0">Phone number: {{ $advert->phone }}</p>
 
     <hr>
 

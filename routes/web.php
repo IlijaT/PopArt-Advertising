@@ -23,6 +23,8 @@ Route::get('/users/{user}', 'UsersController@show');
 Route::get('/users/{user}/edit', 'UsersController@edit');
 Route::put('/users/{user}', 'UsersController@update');
 
+Route::get('/users/{user}/adverts', 'UserAdvertsController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

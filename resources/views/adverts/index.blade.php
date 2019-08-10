@@ -13,8 +13,11 @@
 <main role="main" class="container">
 <div class="row">
   <div class="col-md-8 popart-main">
-    <h3   class="pb-3 mb-4 font-italic border-bottom text-muted">
-      All Adverts
+    <h3  class="pb-3 mb-4 border-bottom text-muted">
+      @if(isset($user)) 
+        {{ $user->name }}
+      @endif
+      Adverts 
     </h3>
 
     @foreach($adverts as $advert)
