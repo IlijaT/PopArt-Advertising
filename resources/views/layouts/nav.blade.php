@@ -41,9 +41,10 @@
 </header>
 <div class="nav-scroller py-1 mb-2">
   <nav class="nav d-flex justify-content-center">
-    <a class="p-2 text-muted" href="#">Televisors</a>
-    <a class="p-2 text-muted" href="#">Mobile phones</a>
-    <a class="p-2 text-muted" href="#">Computers</a>
-    <a class="p-2 text-muted" href="#">Cars</a>
+    @foreach($categories as $category)
+      @if($category->parent_id === null)
+        <a class="p-2 text-muted" href="#">{{$category->name}}</a>
+      @endif
+    @endforeach
   </nav>
 </div>
