@@ -2,7 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\User;
 use App\Advert;
+use App\Category;
 use Faker\Generator as Faker;
 
 $factory->define(Advert::class, function (Faker $faker) {
@@ -15,7 +17,7 @@ $factory->define(Advert::class, function (Faker $faker) {
         'city' => $faker->city,
         'country' => $faker->country,
         'phone' => $faker->phoneNumber,
-        'user_id' => factory(App\User::class)->create()->id,
-        'category_id' => factory(App\Category::class)->create()->id
+        'user_id' => factory(User::class),
+        'category_id' => factory(Category::class)
     ];
 });
