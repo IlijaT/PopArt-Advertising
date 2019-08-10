@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label for="description">Category</label>
-      <select class="custom-select" id="inputGroupSelect01">
+      <select name="category_id" class="custom-select" id="inputGroupSelect01">
         <option value="" disabled selected>Select category</option>
         
         @foreach($categories as $category)

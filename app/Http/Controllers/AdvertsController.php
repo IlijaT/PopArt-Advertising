@@ -20,7 +20,11 @@ class AdvertsController extends Controller
      */
     public function index()
     {
-        $adverts = Advert::latest()->paginate(15);
+
+        $adverts = Advert::latest()
+            ->filter(request(['category_id']))
+            ->paginate(15);
+
         return view('adverts.index', compact('adverts'));
     }
 
@@ -54,6 +58,7 @@ class AdvertsController extends Controller
                 'city' => request('city'),
                 'country' => request('country'),
                 'phone' => request('phone'),
+                'category_id' => request('category_id'),
             ])
         );
 

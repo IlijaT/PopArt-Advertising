@@ -12,4 +12,11 @@ class Advert extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilter($query, $filters)
+    {
+        if (isset($filters['category_id'])) {
+            $query->where('category_id', $filters['category_id']);
+        }
+    }
 }

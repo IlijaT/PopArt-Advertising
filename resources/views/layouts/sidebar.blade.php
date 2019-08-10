@@ -7,7 +7,7 @@
 
       <li>
         @if($category->parent_id === null)
-          <a href="/categories/{{ $category->id }}">{{ $category->name }}</a>
+          <a href="/?category_id={{ $category->id }}">{{ $category->name }}</a>
           @if(count($category->subcategory))
             @include('layouts.subCategoryList',['subcategories' => $category->subcategory])
           @endif 

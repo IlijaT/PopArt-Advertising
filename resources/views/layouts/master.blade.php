@@ -17,7 +17,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     {{-- Favicon --}}
-    <link rel="shortcut icon" href="{{ asset('images/favicon2.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -34,9 +34,7 @@
 
         @if($flash = session('message'))
           <div id="flash-message" class="alert alert-success" role="alert">
-            
             <p>{{ $flash }}</p>
-          
           </div>
         @endif
 
@@ -49,11 +47,9 @@
         </div> 
 
       </main> 
-
     </div> 
 
     @include('layouts.footer')
-
 
   </body>
 </html>

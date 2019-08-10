@@ -49,7 +49,7 @@
   <nav class="nav d-flex justify-content-center">
     @foreach($categories as $category)
       @if($category->parent_id === null)
-        <a class="p-2 text-muted" href="/categories/{{ $category->id }}">{{$category->name}}</a>
+        <a class="p-2 text-muted" href="/?category_id={{ $category->id }}">{{$category->name}}</a>
       @endif
     @endforeach
   </nav>
