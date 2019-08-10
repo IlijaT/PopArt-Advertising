@@ -21,9 +21,8 @@
      @include('adverts.advert')
     @endforeach
 
-    <nav class="popart-pagination">
-      <a class="btn btn-outline-primary" href="#">Older</a>
-      <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+    <nav class="popart-pagination d-flex justify-content-end">
+      {{ $adverts->links() }}
     </nav>
 
   </div> 
