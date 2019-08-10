@@ -1,18 +1,15 @@
-<div class="popart-post">
+<div class="bg-white rounded-lg shadow-sm p-4 mb-2">
 
-    <h5 class="popart-post-title">
+    <p class="popart-post-title mb-0">
       <a href="/adverts/{{ $advert->id }}">
-          {{ $advert->title }}
+          {{ ucfirst($advert->title)  }}
       </a>
-    </h5>
-  
-      {{-- <p class="blog-post-meta">{{ $advert->user->name }} on {{ $advert->created_at->toFormattedDateString()}} </p> --}}
-    {{ $advert->created_at->diffForHumans() }}
-    <p> {{ $advert->descritpion }}</p>
-    <p> {{ $advert->state }}</p>
-    <p> {{ $advert->price }}</p>
-    <p> {{ $advert->location }}</p>
-
-    <hr>
+    </p>
+    <p class="font-italic text-muted">published {{ $advert->created_at->diffForHumans() }}</p>
+    
+    <p class="my-0">Description: {{ $advert->description }}</p>
+    <p class="my-0">State: {{ $advert->state }}</p>
+    <p class="my-0">Price: {{ $advert->price }} $</p>
+    <p class="my-0">Location: {{ $advert->city }}</p>
       
   </div> 
