@@ -20,17 +20,17 @@ class DatabaseSeeder extends Seeder
         factory(Category::class)->create(['name' => 'Bicikli']);
 
         $komponente = factory(Category::class)->create([
-            'name' => 'Komponente',
+            'name' => 'Racunarske komponente',
             'parent_id' => $racunari->id
         ]);
 
         factory(Category::class)->create([
-            'name' => 'Desktop',
+            'name' => 'Desktop racunari',
             'parent_id' => $racunari->id
         ]);
 
         factory(Category::class)->create([
-            'name' => 'Laptop',
+            'name' => 'Laptop racunari',
             'parent_id' => $racunari->id
         ]);
 
@@ -40,12 +40,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(Category::class)->create([
-            'name' => 'Delovi',
+            'name' => 'Auto delovi',
             'parent_id' => $automobili->id
         ]);
 
         factory(Category::class)->create([
-            'name' => 'Oprema',
+            'name' => 'Auto oprema',
             'parent_id' => $automobili->id
         ]);
 

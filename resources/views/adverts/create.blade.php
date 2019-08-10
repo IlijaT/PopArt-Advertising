@@ -18,6 +18,17 @@
     </div>
 
     <div class="form-group">
+      <label for="description">Category</label>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option value="" disabled selected>Select category</option>
+        
+        @foreach($categories as $category)
+        	<option value="{{$category->id}}">{{ $category->name }}</option>
+        @endforeach
+      </select>
+    </div>
+
+    <div class="form-group">
       <label for="description">Descritpion</label>
       <textarea class="form-control" id="description" name="description" rows="3" required>{{ old('description') }}</textarea>
     </div>
