@@ -11,9 +11,13 @@
     <p class="my-0">Price: {{ $advert->price }} $</p>
     <p class="my-0">Location: {{ $advert->street , $advert->city, $advert->country}} </p>
     <p class="my-0">Phone number: {{ $advert->phone }}</p>
-
+    
+    <form method="POST" action="/photos/{{ $advert->id }}"
+      class="dropzone"
+      id="my-awesome-dropzone">
+      @csrf
+    </form>
     <hr>
-
     <div class="form-group d-flex justify-content-end">
       <a class="btn btn-dark mx-1" href='{{"/adverts/{$advert->id}/edit"}}'>Edit</a>
       <form action="/adverts/{{ $advert->id }}" method="post">
@@ -30,4 +34,8 @@
     </div>
     
   </div>
+@endsection
+
+@section('scripts.footer')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
 @endsection

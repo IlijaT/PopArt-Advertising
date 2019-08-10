@@ -25,6 +25,8 @@ Route::put('/users/{user}', 'UsersController@update');
 
 Route::get('/users/{user}/adverts', 'UserAdvertsController@index');
 
+Route::post('/photos/{advert}', 'AdvertPhotosController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
