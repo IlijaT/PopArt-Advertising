@@ -12,8 +12,9 @@
     <p class="my-0">Location: {{ $advert->street , $advert->city, $advert->country}} </p>
     <p class="my-0">Phone number: {{ $advert->phone }}</p>
 
+    <upload-photo></upload-photo>
+    
     <hr>
-
     <div class="form-group d-flex justify-content-end">
       <a class="btn btn-dark mx-1" href='{{"/adverts/{$advert->id}/edit"}}'>Edit</a>
       <form action="/adverts/{{ $advert->id }}" method="post">
