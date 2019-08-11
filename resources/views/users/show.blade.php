@@ -5,7 +5,7 @@
     
     <h3>{{ $user->name }}</h3>
     <p>{{ $user->email }}</p>
-    <a href="/">All your adverts</a>
+    <a href="/users/{{ $user->id }}/adverts">All your adverts</a>
 
     <hr>
 

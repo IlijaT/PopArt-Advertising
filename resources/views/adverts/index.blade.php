@@ -2,11 +2,43 @@
 
 @section('content')
 
-<div class="d-flex justify-content-center jumbotron p-3 p-md-5 text-white rounded bg-dark">
-  <div class="col-md-6 px-0">
-    <h1 class="display-6 font-italic">PopArt Advertising Test Site</h1>
-    <p class="lead my-3">Sell products online with PopArt Advertising
-      Everything you need to sell online. Trusted by over 800,000 businesses worldwide..</p>
+<div class="d-flex justify-content-center container-fluid jumbotron p-3 p-md-5 text-white rounded bg-dark">
+  <div class="px-0">
+    <h3 class="font-italic">Search Our Site</h3>
+
+    <form class="m-1 form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Key words..." aria-label="Search">
+
+      <div class="input-group m-1">
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Category</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+
+      <div class="input-group m-1">
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected>City</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+
+      <div class="input-group m-1">
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Price</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+
+      <button class="btn btn-outline-light ml-2 my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
   </div>
 </div>
 
