@@ -12,24 +12,32 @@
     <p class="my-0">Location: {{ $advert->street , $advert->city, $advert->country}} </p>
     <p class="my-0">Phone number: {{ $advert->phone }}</p>
     
-    <div class="mt-2">
-      <form method="POST" action="/photos/{{ $advert->id }}"
-        class="dropzone"
-        id="my-awesome-dropzone">
-        @csrf
-      </form>
-    </div>
 
-    <hr>
+    @auth
+      @if(auth()->user()->id === $advert->user->id || auth()->user()->hasRole('admin'))
 
-    <div class="form-group d-flex justify-content-end">
-      <a class="btn btn-dark mx-1" href='{{"/adverts/{$advert->id}/edit"}}'>Edit</a>
-      <form action="/adverts/{{ $advert->id }}" method="post">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger mx-1">Delete</button>
-      </form>
-    </div>
+        <div class="mt-2">
+          <form method="POST" action="/photos/{{ $advert->id }}"
+            class="dropzone"
+            id="my-awesome-dropzone">
+            @csrf
+          </form>
+        </div>
+
+        <hr>
+
+        <div class="form-group d-flex justify-content-end">
+          <a class="btn btn-dark mx-1" href='{{"/adverts/{$advert->id}/edit"}}'>Edit</a>
+          <form action="/adverts/{{ $advert->id }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger mx-1">Delete</button>
+          </form>
+        </div>
+
+      @endif
+    @endauth
+
       
     <div>
       @include('layouts.errors')
@@ -43,7 +51,7 @@
         <img class="thumbnail p-1" src='{{ asset("storage/$photo->path") }}' alt="slika">
       </a>
     @empty
-      <img class="thumbnail p-1" src='{{  asset('images/no_image.svg') }}' alt="slika">
+      <img class="thumbnail p-1" src='{{  asset('images/noimage.jpg') }}' alt="slika">
     @endforelse
   </div>
 @endsection

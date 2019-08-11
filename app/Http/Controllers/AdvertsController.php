@@ -86,7 +86,11 @@ class AdvertsController extends Controller
      */
     public function edit(Advert $advert)
     {
-        return view('adverts.edit', compact('advert'));
+        if (auth()->user()->id === $advert->user->id || auth()->user()->hasRole('admin')) {
+            return view('adverts.edit', compact('advert'));
+        }
+
+        abort(403, 'You have no permission to edit that advert');
     }
 
     /**
@@ -97,23 +101,26 @@ class AdvertsController extends Controller
      */
     public function update(Advert $advert)
     {
+        if (auth()->user()->id === $advert->user->id || auth()->user()->hasRole('admin')) {
+            $this->validateAdvertRequest();
 
-        $this->validateAdvertRequest();
+            $advert->update([
+                'title' => request('title'),
+                'description' => request('description'),
+                'state' => request('state'),
+                'price' => request('price'),
+                'street' => request('street'),
+                'city' => request('city'),
+                'country' => request('country'),
+                'phone' => request('phone'),
+            ]);
 
-        $advert->update([
-            'title' => request('title'),
-            'description' => request('description'),
-            'state' => request('state'),
-            'price' => request('price'),
-            'street' => request('street'),
-            'city' => request('city'),
-            'country' => request('country'),
-            'phone' => request('phone'),
-        ]);
+            session()->flash('message', 'Your advert has now been updated.');
 
-        session()->flash('message', 'Your advert has now been updated.');
+            return redirect("/adverts/{$advert->id}");
+        }
 
-        return redirect("/adverts/{$advert->id}");
+        abort(403, 'You have no permission to edit that advert');
     }
 
     /**
@@ -124,9 +131,13 @@ class AdvertsController extends Controller
      */
     public function destroy(Advert $advert)
     {
-        $advert->delete();
-        session()->flash('message', 'Your advert has now been deleted.');
-        return redirect('/');
+        if (auth()->user()->id === $advert->user->id || auth()->user()->hasRole('admin')) {
+            $advert->delete();
+            session()->flash('message', 'Your advert has now been deleted.');
+            return redirect('/');
+        }
+
+        abort(403, 'You have no permission to delete that advert');
     }
 
     private function validateAdvertRequest()

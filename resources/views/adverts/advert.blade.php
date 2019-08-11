@@ -17,7 +17,7 @@
     @if ($advert->photos()->first())
       <img class="thumbnail p-1" src='{{ asset("storage/$advert->first_photo_path") }}' alt="slika">
     @else
-      <img class="thumbnail p-1" src='{{  asset('images/no_image.svg') }}' alt="slika">
+      <img class="thumbnail p-1" src='{{  asset('images/noimage.jpg') }}' alt="slika">
     @endif
   </div>
 

@@ -7,6 +7,13 @@ use App\Advert;
 
 class AdvertPhotosController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function store(Advert $advert)
     {
         request()->validate(['photo' => 'required|mimes:jpg,jpeg,png,bmp']);
