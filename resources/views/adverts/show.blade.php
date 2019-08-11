@@ -39,14 +39,17 @@
 
   <div class="col-md-4 popart-post">
     @forelse ($advert->photos as $photo)
-      <img class="thumbnail p-1" src='{{ asset("storage/$photo->path") }}' alt="slika">
+      <a href='{{ asset("storage/$photo->path") }}' data-lity>
+        <img class="thumbnail p-1" src='{{ asset("storage/$photo->path") }}' alt="slika">
+      </a>
     @empty
-        <p>No photos</p>
+      <img class="thumbnail p-1" src='{{  asset('images/no_image.svg') }}' alt="slika">
     @endforelse
   </div>
 @endsection
 
-@section('scripts.footer')
+@section('scripts.footer')`
+  <script src="{{ asset('js/lity.js') }}" defer></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
   <script>
       Dropzone.options.myAwesomeDropzone = {

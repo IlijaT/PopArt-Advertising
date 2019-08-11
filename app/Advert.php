@@ -24,4 +24,13 @@ class Advert extends Model
             $query->where('category_id', $filters['category_id']);
         }
     }
+
+    public function getFirstPhotoPathAttribute()
+    {
+        if (!$this->photos()->count()) {
+            return null;
+        }
+
+        return $this->photos()->first()->path;
+    }
 }
