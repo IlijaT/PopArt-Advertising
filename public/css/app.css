@@ -10803,3 +10803,13 @@ img {
   max-width: 100%;
 }
 
+.thumbnail {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.galery_image {
+  margin: 1px;
+  padding: 1px;
+}
+

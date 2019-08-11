@@ -11,12 +11,14 @@
     <p class="my-0">Price: {{ $advert->price }} $</p>
     <p class="my-0">Location: {{ $advert->street , $advert->city, $advert->country}} </p>
     <p class="my-0">Phone number: {{ $advert->phone }}</p>
-      
-    <form method="POST" action="/photos/{{ $advert->id }}"
-      class="dropzone"
-      id="my-awesome-dropzone">
-      @csrf
-    </form>
+    
+    <div class="mt-2">
+      <form method="POST" action="/photos/{{ $advert->id }}"
+        class="dropzone"
+        id="my-awesome-dropzone">
+        @csrf
+      </form>
+    </div>
 
     <hr>
 
@@ -29,8 +31,6 @@
       </form>
     </div>
       
-    <hr>
-    
     <div>
       @include('layouts.errors')
     </div>
@@ -39,7 +39,7 @@
 
   <div class="col-md-4 popart-post">
     @forelse ($advert->photos as $photo)
-      <img src='{{ asset("storage/$photo->path") }}' alt="slika">
+      <img class="thumbnail p-1" src='{{ asset("storage/$photo->path") }}' alt="slika">
     @empty
         <p>No photos</p>
     @endforelse
@@ -53,6 +53,12 @@
           paramName: "photo", 
           maxFilesize: 3, // MB
           acceptedFiles: '.jpg, .jpeg, .bmp, .png',
+          init: function () {
+              // Set up any event handlers
+              this.on('complete', function () {
+                  location.reload();
+              });
+          }
       };
   </script>
 @endsection

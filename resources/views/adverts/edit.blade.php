@@ -55,6 +55,7 @@
     </div>
 
     <div class="form-group d-flex justify-content-end">
+      <a class="btn btn-light border mr-2" href="/adverts/{{ $advert->id }}">Cancel</a>
       <button type="submit" class="btn btn-dark">Update</button>
     </div>
       
