@@ -11,28 +11,27 @@
 
       <div class="input-group m-1">
         <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Category</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="" disabled selected>Category</option>
+          @foreach($categories as $category)
+            <option value="{{$category->id}}">{{ $category->name }}</option>
+          @endforeach
         </select>
       </div>
 
       <div class="input-group m-1">
         <select class="custom-select" id="inputGroupSelect01">
-          <option selected>City</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="" disabled selected>City</option>
+          @foreach($cities as $city)
+            <option value="{{$city }}">{{ $city }}</option>
+          @endforeach
         </select>
       </div>
 
       <div class="input-group m-1">
         <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Price</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="" disabled selected>Price</option>
+          <option value="1">Min to Max</option>
+          <option value="2">Max to Min</option>
         </select>
       </div>
 

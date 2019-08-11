@@ -9,7 +9,7 @@ class UserAdvertsController extends Controller
 {
     public function index(User $user)
     {
-        $adverts = $user->adverts()->paginate(15);
+        $adverts = $user->adverts()->latest()->paginate(15);
 
         return view('adverts.index', compact('adverts', 'user'));
     }

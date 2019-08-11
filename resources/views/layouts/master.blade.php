@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>{{ config('app.name', 'PopArt Advertising') }}: @yield('title')</title>
+    <title>{{ config('app.name', 'PopArt Advertising') }}</title>
 
 
     <!-- Font Awesome -->

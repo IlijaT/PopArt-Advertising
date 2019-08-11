@@ -15,9 +15,10 @@ class MustBeAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->hasRole('manager')) {
+        if (auth()->check() && auth()->user()->hasRole('admin')) {
             return $next($request);
         }
+
         return redirect('/');
     }
 }

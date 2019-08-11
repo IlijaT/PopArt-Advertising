@@ -41,9 +41,10 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        // if ( $user->isAdmin() ) {// do your margic here
-        //     return redirect()->route('dashboard');
-        // }
+        if ($user->hasRole('admin')) { // do your margic here
+            return redirect()->route('home');
+        }
+
         return redirect("/users/" .  Auth::user()->id . "/adverts");
     }
 }
