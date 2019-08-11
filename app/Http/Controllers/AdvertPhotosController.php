@@ -7,16 +7,16 @@ use App\Advert;
 
 class AdvertPhotosController extends Controller
 {
-    public function store(Request $request, Advert $advert)
+    public function store(Advert $advert)
     {
+        request()->validate(['photo' => 'required|mimes:jpg,jpeg,png,bmp']);
 
-        $file = $request->file('file');
-        $name = time() . $file->getClientOriginalName();
+        $file = request()->file('photo')->store('photos', 'public');
 
-        $file->move('adverts/photos', $name);
+        $advert->photos()->create([
+            'path' => $file
+        ]);
 
-        $advert->photos()->create(['path' => "/flyers/photos/{$name}"]);
-
-        return 'done';
+        return $file;
     }
 }
