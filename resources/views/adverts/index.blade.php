@@ -6,32 +6,24 @@
   <div class="px-0">
     <h3 class="font-italic">Search Our Site</h3>
 
-    <form class="m-1 form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Key words..." aria-label="Search">
+    <form method="GET" action="/adverts" class="m-1 form-inline">
+      <input name="title" class="form-control mr-sm-2" type="search" placeholder="Key words..." aria-label="Search">
 
       <div class="input-group m-1">
-        <select class="custom-select" id="inputGroupSelect01">
+        <select class="custom-select" name="category_id">
           <option value="" disabled selected>Category</option>
           @foreach($categories as $category)
-            <option value="{{$category->id}}">{{ $category->name }}</option>
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
           @endforeach
         </select>
       </div>
 
       <div class="input-group m-1">
-        <select class="custom-select" id="inputGroupSelect01">
+        <select class="custom-select" name="city">
           <option value="" disabled selected>City</option>
           @foreach($cities as $city)
-            <option value="{{$city }}">{{ $city }}</option>
+            <option value="{{ $city }}">{{ $city }}</option>
           @endforeach
-        </select>
-      </div>
-
-      <div class="input-group m-1">
-        <select class="custom-select" id="inputGroupSelect01">
-          <option value="" disabled selected>Price</option>
-          <option value="1">Min to Max</option>
-          <option value="2">Max to Min</option>
         </select>
       </div>
 

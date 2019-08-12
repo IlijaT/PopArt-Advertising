@@ -22,7 +22,7 @@ class AdvertsController extends Controller
     {
 
         $adverts = Advert::latest()
-            ->filter(request(['category_id']))
+            ->filter(request(['title', 'category_id', 'city']))
             ->paginate(15);
 
         return view('adverts.index', compact('adverts'));

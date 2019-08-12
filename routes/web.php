@@ -12,12 +12,8 @@
 */
 
 Route::get('/', 'AdvertsController@index');
-Route::get('/adverts/create', 'AdvertsController@create');
-Route::post('/adverts', 'AdvertsController@store');
-Route::get('/adverts/{advert}', 'AdvertsController@show');
-Route::get('/adverts/{advert}/edit', 'AdvertsController@edit');
-Route::put('/adverts/{advert}', 'AdvertsController@update');
-Route::delete('/adverts/{advert}', 'AdvertsController@destroy');
+
+Route::resource('adverts', 'AdvertsController');
 
 Route::get('/users/{user}', 'UsersController@show');
 Route::get('/users/{user}/edit', 'UsersController@edit');
