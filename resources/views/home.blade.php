@@ -4,7 +4,8 @@
  
     <div class="col-md-8 blog-main mt-2">
         <div class="card">
-            <div class="card-header">FAKE ADMIN DASHBOARD</div>
+            <div class="card-header bg-danger text-light text-center">!!!!!! >>> PAGE UNDER CONSTRUCTION <<< !!!!!!!</div>
+            <div class="card-header">Admin Dashboard</div>
 
             <div class="card-body">
                 @if (session('status'))
